@@ -48,8 +48,7 @@ public class WatcherListener {
                     val stringPath = inputPath().toString();
                     log.info("NEW FILE WAS CREATED ON PATH: {}", stringPath);
                     val filename = event.context().toString();
-                    if (!FILE_EXTENSION.equals(com.google.common.io.Files.getFileExtension(filename))) {
-                        log.info("The new file it's not a .dat. No report generated.");
+                    if (validateFileExtension(filename)) {
                         continue;
                     }
 
@@ -75,10 +74,17 @@ public class WatcherListener {
         }
     }
 
+    private boolean validateFileExtension(final String filename) {
+        if (!FILE_EXTENSION.equals(com.google.common.io.Files.getFileExtension(filename))) {
+            log.info("The new file it's not a .dat. No report generated.");
+            return Boolean.TRUE;
+        }
+        return Boolean.FALSE;
+    }
+
     private void process(final String stringPath, final String filename) throws IOException {
         extractDataHandler.execute(new File(String.format("%s/%s", stringPath, filename)));
         reportGenerator.execute(filename);
-
         databaseCleaner.clean();
     }
 
