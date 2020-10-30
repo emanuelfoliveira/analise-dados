@@ -6,8 +6,6 @@ This is a demo project. The idea was build a file processor
 
 It was made using **Java 11**, **Maven**" **Spring Boot**, **Spring Data JPA**, **Lombok**. Database is in memory **H2**.
 
-There is a login and registration functionality included.
-
 ## Configuration
 
 ### Maven Wrapper
