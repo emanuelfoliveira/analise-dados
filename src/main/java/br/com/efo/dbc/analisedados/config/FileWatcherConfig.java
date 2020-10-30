@@ -1,6 +1,7 @@
 package br.com.efo.dbc.analisedados.config;
 
-import br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils;
+import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.inputPath;
+
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -17,7 +18,7 @@ public class FileWatcherConfig {
 
     @Bean
     public WatchService watchService() {
-        val path = AnaliseDadosUtils.inputPath();
+        val path = inputPath();
         log.info("MONITORING_FOLDER: {}", path);
         WatchService watchService = null;
         try {
