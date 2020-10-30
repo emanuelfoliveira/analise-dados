@@ -1,4 +1,4 @@
-package br.com.efo.dbc.analisedados.factory;
+package br.com.efo.dbc.analisedados.handler;
 
 import br.com.efo.dbc.analisedados.model.ClientEntity;
 import br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils;
@@ -6,7 +6,7 @@ import lombok.val;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ClientFactory {
+public class ClientHandler {
 
     public ClientEntity process(final String[] line) {
         val cnpj = AnaliseDadosUtils.getFieldByPosition(line, 1);

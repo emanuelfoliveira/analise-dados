@@ -1,4 +1,4 @@
-package br.com.efo.dbc.analisedados.factory;
+package br.com.efo.dbc.analisedados.handler;
 
 import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.getFieldByPosition;
 
@@ -7,7 +7,7 @@ import lombok.val;
 import org.springframework.stereotype.Component;
 
 @Component
-public class VendorFactory {
+public class VendorHandler {
 
     public VendorEntity process(final String[] line) {
         val cpf = getFieldByPosition(line, 1);

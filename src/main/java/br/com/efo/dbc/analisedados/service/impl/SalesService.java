@@ -1,6 +1,6 @@
 package br.com.efo.dbc.analisedados.service.impl;
 
-import br.com.efo.dbc.analisedados.factory.SalesFactory;
+import br.com.efo.dbc.analisedados.handler.SalesHandler;
 import br.com.efo.dbc.analisedados.repository.SalesRepository;
 import br.com.efo.dbc.analisedados.service.ISalesService;
 import javax.transaction.Transactional;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class SalesService implements ISalesService {
 
     @Autowired
-    private SalesFactory factory;
+    private SalesHandler handler;
 
     @Autowired
     private SalesRepository repository;
@@ -20,7 +20,7 @@ public class SalesService implements ISalesService {
     @Override
     @Transactional
     public void execute(final String[] line) {
-        val entity = factory.process(line);
+        val entity = handler.process(line);
         repository.save(entity);
     }
 }

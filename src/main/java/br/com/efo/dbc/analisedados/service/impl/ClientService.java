@@ -1,6 +1,6 @@
 package br.com.efo.dbc.analisedados.service.impl;
 
-import br.com.efo.dbc.analisedados.factory.ClientFactory;
+import br.com.efo.dbc.analisedados.handler.ClientHandler;
 import br.com.efo.dbc.analisedados.repository.ClientRepository;
 import br.com.efo.dbc.analisedados.service.IClientService;
 import java.util.stream.StreamSupport;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class ClientService implements IClientService {
 
     @Autowired
-    private ClientFactory factory;
+    private ClientHandler handler;
 
     @Autowired
     private ClientRepository repository;
@@ -21,7 +21,7 @@ public class ClientService implements IClientService {
     @Override
     @Transactional
     public void execute(final String[] line) {
-        val entity = factory.process(line);
+        val entity = handler.process(line);
         repository.save(entity);
     }
 
