@@ -4,7 +4,6 @@ import br.com.efo.dbc.analisedados.handler.SalesHandler;
 import br.com.efo.dbc.analisedados.repository.SalesRepository;
 import br.com.efo.dbc.analisedados.service.ISalesService;
 import javax.transaction.Transactional;
-import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +19,6 @@ public class SalesService implements ISalesService {
     @Override
     @Transactional
     public void execute(final String[] line) {
-        val entity = handler.process(line);
-        repository.save(entity);
+        repository.save(handler.process(line));
     }
 }
