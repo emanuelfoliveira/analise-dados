@@ -1,4 +1,4 @@
-# Data Analyze System
+# Data Analyzer System
 
 ## About
 
