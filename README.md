@@ -35,7 +35,8 @@ It was made using **Java 11**, **Maven**, **Spring Boot**, **Spring Data JPA**, 
 #### Using the Maven Plugin
 
 Go to the root folder of the application and type:
-```bash
+```
+bash
 $ chmod +x scripts/mvnw
 $ scripts/mvnw spring-boot:run
 ```
@@ -43,12 +44,14 @@ $ scripts/mvnw spring-boot:run
 #### Using Executable Jar
 
 Or you can build the JAR file with 
-```bash
+```
+bash
 $ scripts/mvnw clean package
 ``` 
 
 Then you can run the JAR file:
-```bash
+```
+bash
 $ java -jar target/analise-dados.jar
 ```
 
@@ -56,14 +59,16 @@ $ java -jar target/analise-dados.jar
 
 Open a terminal and run the following commands to ensure that you have valid versions of Java and Maven installed:
 
-```bash
+```
+bash
 $ java -version
 java version "1.8.0_151"
 Java(TM) SE Runtime Environment (build 11.8.0_151-b14)
 Java HotSpot(TM) 64-Bit Server VM
 ```
 
-```bash
+```
+bash
 $ mvn -v
 Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T16:41:47+00:00)
 Maven home: /usr/local/Cellar/maven/3.3.9/libexec
@@ -76,7 +81,8 @@ The Spring Boot Maven plugin includes a run goal that can be used to quickly com
 Applications run in an exploded form, as they do in your IDE. 
 The following example shows a typical Maven command to run a Spring Boot application:
  
-```bash
+```
+bash
 $ mvn spring-boot:run
 ``` 
 
@@ -84,13 +90,15 @@ $ mvn spring-boot:run
 
 To create an executable jar run:
 
-```bash
+```
+bash
 $ mvn clean package
 ``` 
 
 To run that application, use the java -jar command, as follows:
 
-```bash
+```
+bash
 $ java -jar target/analise-dados-0.0.1-SNAPSHOT.jar
 ```
 
@@ -98,7 +106,8 @@ To exit the application, press **ctrl-c**.
 
 Tests can be run by executing following command from the root of the project:
 
-```bash
+```
+bash
 $ mvn test
 ```
 
