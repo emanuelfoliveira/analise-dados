@@ -4,6 +4,6 @@ public interface ISalesItemService {
 
     Integer findExpensiveSale();
 
-    String findCheapestVendorName();
+    String findWorstVendorName();
 
 }

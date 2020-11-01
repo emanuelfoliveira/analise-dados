@@ -12,6 +12,6 @@ public interface SalesItemRepository extends CrudRepository<SalesItemEntity, Lon
     Integer findExpensiveSaleId();
 
     @Query("SELECT DISTINCT salesEntity.salesmanName FROM SalesItemEntity WHERE itemPrice = (SELECT MIN(itemPrice) FROM SalesItemEntity) ")
-    String findCheapestVendorName();
+    String findWorstVendorName();
 
 }

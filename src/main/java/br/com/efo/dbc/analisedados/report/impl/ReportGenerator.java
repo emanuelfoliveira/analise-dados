@@ -23,7 +23,7 @@ public class ReportGenerator implements IReportGenerator {
     private final static String MESSAGE_FORMAT_COUNT_SALE_ID = "Quantidade de clientes no arquivo de entrada:%s \n";
     private final static String MESSAGE_FORMAT_COUNT_VENDOR = "Quantidade de vendedor no arquivo de entrada:%s \n";
     private final static String MESSAGE_FORMAT_COUNT_EXPENSIVE_SALE = "ID da venda mais cara:%s \n";
-    private final static String MESSAGE_FORMAT_COUNT_CHEAPEST_VENDOR = "Pior Vendedor:%s";
+    private final static String MESSAGE_FORMAT_COUNT_WORST_VENDOR = "Pior Vendedor:%s";
     private final static String DATE_PATTERN = "ddMMyyyyHHmmss";
     private final static String FILE_NAME_FORMAT = "/%s_%s.done.dat";
 
@@ -43,11 +43,11 @@ public class ReportGenerator implements IReportGenerator {
         val countClient = clientService.count();
         val countVendor = vendorService.count();
         val expensiveSaleId = salesItemService.findExpensiveSale();
-        val cheapestVendorName = salesItemService.findCheapestVendorName();
+        val worstVendorName = salesItemService.findWorstVendorName();
         val flatFileName = String.format(FILE_NAME_FORMAT, fileName,new SimpleDateFormat(DATE_PATTERN).format(new Date()));
 
         val outputFile = new FileWriter(new File(outputPath().toString().concat(flatFileName)));
-        outputFile.write(buildReportContent(countClient, countVendor, expensiveSaleId, cheapestVendorName));
+        outputFile.write(buildReportContent(countClient, countVendor, expensiveSaleId, worstVendorName));
         outputFile.close();
 
         log.info("Report Generator Finished. File {} was generated on Path {}", flatFileName, outputPath().toString());
@@ -55,13 +55,13 @@ public class ReportGenerator implements IReportGenerator {
 
     private String buildReportContent(final Long countClient, final Long countVendor,
         final Integer expensiveSaleId,
-        final String cheapestVendorName) {
+        final String worstVendorName) {
 
         val contentStringBuilder = new StringBuilder();
         contentStringBuilder.append(String.format(MESSAGE_FORMAT_COUNT_SALE_ID, countClient));
         contentStringBuilder.append(String.format(MESSAGE_FORMAT_COUNT_VENDOR, countVendor));
         contentStringBuilder.append(String.format(MESSAGE_FORMAT_COUNT_EXPENSIVE_SALE, expensiveSaleId));
-        contentStringBuilder.append(String.format(MESSAGE_FORMAT_COUNT_CHEAPEST_VENDOR, cheapestVendorName));
+        contentStringBuilder.append(String.format(MESSAGE_FORMAT_COUNT_WORST_VENDOR, worstVendorName));
 
         return contentStringBuilder.toString();
     }

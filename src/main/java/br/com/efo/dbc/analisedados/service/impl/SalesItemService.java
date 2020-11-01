@@ -17,7 +17,7 @@ public class SalesItemService implements ISalesItemService {
     }
 
     @Override
-    public String findCheapestVendorName() {
-        return repository.findCheapestVendorName();
+    public String findWorstVendorName() {
+        return repository.findWorstVendorName();
     }
 }
