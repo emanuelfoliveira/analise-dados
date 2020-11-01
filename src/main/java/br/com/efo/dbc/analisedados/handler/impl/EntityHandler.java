@@ -16,12 +16,17 @@ public class EntityHandler implements IEntityHandler {
 
     private final static String DETAILS_DELIMITER = ",";
     private final static String ITEM_DETAILS_DELIMITER = "-";
+    private final static String SQUARE_BRACKETS_REGEX = "[\\[\\]]";
+    private final static Integer VECTOR_POSITION_ZERO = 0;
+    private final static Integer VECTOR_POSITION_ONE = 1;
+    private final static Integer VECTOR_POSITION_TWO = 2;
+    private final static Integer VECTOR_POSITION_THREE = 3;
 
     @Override
     public ClientEntity buildClient(final String[] line) {
-        val cnpj = getFieldByPosition(line, 1);
-        val name = getFieldByPosition(line, 2);
-        val businessArea = getFieldByPosition(line, 3);
+        val cnpj = getFieldByPosition(line, VECTOR_POSITION_ONE);
+        val name = getFieldByPosition(line, VECTOR_POSITION_TWO);
+        val businessArea = getFieldByPosition(line, VECTOR_POSITION_THREE);
 
         return ClientEntity
             .builder()
@@ -33,9 +38,9 @@ public class EntityHandler implements IEntityHandler {
 
     @Override
     public SalesEntity buildSales(final String[] line) {
-        val saleId = getFieldByPosition(line, 1);
-        val items = line[2].replaceAll("[\\[\\]]", "");
-        val salesmanName = getFieldByPosition(line, 3);
+        val saleId = getFieldByPosition(line, VECTOR_POSITION_ONE);
+        val items = line[VECTOR_POSITION_TWO].replaceAll(SQUARE_BRACKETS_REGEX, "");
+        val salesmanName = getFieldByPosition(line, VECTOR_POSITION_THREE);
 
         val spplitedItems = items.split(DETAILS_DELIMITER);
 
@@ -44,9 +49,9 @@ public class EntityHandler implements IEntityHandler {
             val itemsLine = spplitedItems[i].split(ITEM_DETAILS_DELIMITER);
 
             val entity = SalesItemEntity.builder()
-                .itemId(getFieldByPosition(itemsLine, 0))
-                .itemQuantity(getFieldByPosition(itemsLine, 1))
-                .itemPrice(Double.parseDouble(getFieldByPosition(itemsLine, 2)))
+                .itemId(getFieldByPosition(itemsLine, VECTOR_POSITION_ZERO))
+                .itemQuantity(getFieldByPosition(itemsLine, VECTOR_POSITION_ONE))
+                .itemPrice(Double.parseDouble(getFieldByPosition(itemsLine, VECTOR_POSITION_TWO)))
                 .build();
 
             listItems.add(entity);
@@ -62,9 +67,9 @@ public class EntityHandler implements IEntityHandler {
 
     @Override
     public VendorEntity buildVendor(final String[] line) {
-        val cpf = getFieldByPosition(line, 1);
-        val name = getFieldByPosition(line, 2);
-        val salary = getFieldByPosition(line, 3);
+        val cpf = getFieldByPosition(line, VECTOR_POSITION_ONE);
+        val name = getFieldByPosition(line, VECTOR_POSITION_TWO);
+        val salary = getFieldByPosition(line, VECTOR_POSITION_THREE);
 
         return VendorEntity
             .builder()

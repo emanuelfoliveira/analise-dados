@@ -20,6 +20,7 @@ import org.springframework.stereotype.Component;
 class DataReader implements IDataReader {
 
     private final static String DELIMITER = "ç";
+    private final static Integer VECTOR_POSITION_ZERO = 0;
 
     @Autowired
     private IVendorService vendorService;
@@ -45,7 +46,7 @@ class DataReader implements IDataReader {
 
     private void handler(final String line) {
         val splittedLine = line.split(DELIMITER);
-        val entityCode = getByCode(splittedLine[0]);
+        val entityCode = getByCode(splittedLine[VECTOR_POSITION_ZERO]);
 
         switch (entityCode) {
             case VENDOR:
