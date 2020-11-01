@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class DataReader implements IDataReader {
+class DataReader implements IDataReader {
 
     private final static String DELIMITER = "ç";
 

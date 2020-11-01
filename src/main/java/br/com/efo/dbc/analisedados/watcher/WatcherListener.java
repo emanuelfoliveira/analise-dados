@@ -2,8 +2,8 @@ package br.com.efo.dbc.analisedados.watcher;
 
 import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.inputPath;
 
+import br.com.efo.dbc.analisedados.datareader.IDataReader;
 import br.com.efo.dbc.analisedados.report.IReportGenerator;
-import br.com.efo.dbc.analisedados.datareader.impl.DataReader;
 import br.com.efo.dbc.analisedados.utils.DatabaseCleaner;
 import java.io.File;
 import java.io.IOException;
@@ -29,7 +29,7 @@ class WatcherListener {
     private final WatchService watchService;
 
     @Autowired
-    private DataReader dataReader;
+    private IDataReader dataReader;
 
     @Autowired
     private IReportGenerator reportGenerator;

@@ -5,6 +5,7 @@ import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.inputPath;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.StandardWatchEventKinds;
 import java.nio.file.WatchService;
 import lombok.extern.slf4j.Slf4j;
@@ -24,17 +25,19 @@ class FileWatcherConfig {
         try {
             watchService = FileSystems.getDefault().newWatchService();
 
-            if (!Files.isDirectory(path)) {
-                throw new RuntimeException("incorrect monitoring folder: " + path);
-            }
-            path.register(
-                watchService,
-                StandardWatchEventKinds.ENTRY_CREATE
-            );
+            isValidDirectory(path);
+
+            path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE);
         } catch (IOException e) {
             log.error("exception for watch service creation:", e);
         }
 
         return watchService;
+    }
+
+    private void isValidDirectory(final Path path) {
+        if (!Files.isDirectory(path)) {
+            throw new RuntimeException("incorrect monitoring folder: " + path);
+        }
     }
 }
