@@ -1,5 +1,7 @@
 # Data Analyzer System
 
+## ![Execution Example](https://github.com/emanuelfoliveira/analise-dados/blob/master/console-image-example.png)
+
 ## About
 
 This is a demo project. The idea was build a file processor
