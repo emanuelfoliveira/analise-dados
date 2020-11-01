@@ -75,11 +75,12 @@ public class WatcherListener {
     }
 
     private boolean validateFileExtension(final String filename) {
-        if (!FILE_EXTENSION.equals(com.google.common.io.Files.getFileExtension(filename))) {
-            log.info("The new file it's not a .dat. No report generated.");
-            return Boolean.TRUE;
+        if (FILE_EXTENSION.equals(com.google.common.io.Files.getFileExtension(filename))) {
+            return Boolean.FALSE;
         }
-        return Boolean.FALSE;
+        
+        log.info("The new file it's not a .dat. No report generated.");
+        return Boolean.TRUE;
     }
 
     private void process(final String stringPath, final String filename) throws IOException {
