@@ -1,6 +1,6 @@
 package br.com.efo.dbc.analisedados.datareader.impl;
 
-import static br.com.efo.dbc.analisedados.model.EntityCodeEnum.getByCode;
+import static br.com.efo.dbc.analisedados.model.EntityCodeEnum.getEntityByCode;
 
 import br.com.efo.dbc.analisedados.datareader.IDataReader;
 import br.com.efo.dbc.analisedados.service.IClientService;
@@ -46,7 +46,7 @@ class DataReader implements IDataReader {
 
     private void handler(final String line) {
         val splittedLine = line.split(DELIMITER);
-        val entityCode = getByCode(splittedLine[VECTOR_POSITION_ZERO]);
+        val entityCode = getEntityByCode(splittedLine[VECTOR_POSITION_ZERO]);
 
         switch (entityCode) {
             case VENDOR:

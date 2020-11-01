@@ -41,29 +41,32 @@ class ReportGenerator implements IReportGenerator {
     public void execute(final String fileName) throws IOException {
         log.info("Report Generator Started");
 
-        val countClient = clientService.count();
-        val countVendor = vendorService.count();
-        val expensiveSaleId = salesItemService.findExpensiveSale();
-        val worstVendorName = salesItemService.findWorstVendorName();
-        val flatFileName = String.format(FILE_NAME_FORMAT, Files.getNameWithoutExtension(fileName), new SimpleDateFormat(DATE_PATTERN).format(new Date()));
+        val flatFileName = getFlatFilename(fileName);
+        writeOutputFile(flatFileName);
 
-        val outputFile = new FileWriter(new File(outputPath().toString().concat(flatFileName)));
-        outputFile.write(buildReportContent(countClient, countVendor, expensiveSaleId, worstVendorName));
-        outputFile.close();
-
-        log.info("Report Generator Finished. File {} was generated on Path {}", flatFileName, outputPath().toString());
+        log.info("Report Generator Finished. File {} was generated on Path {}", flatFileName,
+            outputPath().toString());
     }
 
-    private String buildReportContent(final Long countClient, final Long countVendor,
-        final Integer expensiveSaleId,
-        final String worstVendorName) {
+    private void writeOutputFile(final String flatFileName) throws IOException {
+        val outputFile = new FileWriter(new File(outputPath().toString().concat(flatFileName)));
+        outputFile.write(buildReportContent());
+        outputFile.close();
+    }
 
+    private String buildReportContent() {
         val content = new StringBuilder();
-        content.append(String.format(MESSAGE_FORMAT_COUNT_SALE_ID, countClient));
-        content.append(String.format(MESSAGE_FORMAT_COUNT_VENDOR, countVendor));
-        content.append(String.format(MESSAGE_FORMAT_COUNT_EXPENSIVE_SALE, expensiveSaleId));
-        content.append(String.format(MESSAGE_FORMAT_COUNT_WORST_VENDOR, worstVendorName));
+        content.append(String.format(MESSAGE_FORMAT_COUNT_SALE_ID, clientService.count()));
+        content.append(String.format(MESSAGE_FORMAT_COUNT_VENDOR, vendorService.count()));
+        content.append(String.format(MESSAGE_FORMAT_COUNT_EXPENSIVE_SALE, salesItemService.findExpensiveSale()));
+        content.append(String.format(MESSAGE_FORMAT_COUNT_WORST_VENDOR, salesItemService.findWorstVendorName()));
 
         return content.toString();
+    }
+
+    private String getFlatFilename(final String fileName) {
+        val nameWithoutExtension = Files.getNameWithoutExtension(fileName);
+        val actualDate = new SimpleDateFormat(DATE_PATTERN).format(new Date());
+        return String.format(FILE_NAME_FORMAT, nameWithoutExtension, actualDate);
     }
 }

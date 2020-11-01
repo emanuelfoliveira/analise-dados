@@ -13,7 +13,7 @@ public enum EntityCodeEnum {
 
     private final String code;
 
-    public static EntityCodeEnum getByCode(final String code) {
+    public static EntityCodeEnum getEntityByCode(final String code) {
         for (val e : values()) {
             if (e.code.equals(code)) {
                 return e;

@@ -52,7 +52,7 @@ class WatcherListener {
                     if (isFileExtensionDat(filename)) {
                         continue;
                     }
-
+                    
                     process(stringPath, filename);
                 }
                 key.reset();
@@ -75,6 +75,12 @@ class WatcherListener {
         }
     }
 
+    private void process(final String path, final String filename) throws IOException {
+        dataReader.execute(new File(String.format("%s/%s", path, filename)));
+        reportGenerator.execute(filename);
+        databaseCleaner.clean();
+    }
+
     private boolean isFileExtensionDat(final String filename) {
         if (FILE_EXTENSION.equals(Files.getFileExtension(filename))) {
             return Boolean.FALSE;
@@ -82,12 +88,6 @@ class WatcherListener {
 
         log.info("The new file it's not a .dat. No report generated.");
         return Boolean.TRUE;
-    }
-
-    private void process(final String path, final String filename) throws IOException {
-        dataReader.execute(new File(String.format("%s/%s", path, filename)));
-        reportGenerator.execute(filename);
-        databaseCleaner.clean();
     }
 
 }
