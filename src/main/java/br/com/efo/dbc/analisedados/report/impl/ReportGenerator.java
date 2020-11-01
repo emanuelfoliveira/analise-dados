@@ -58,12 +58,12 @@ class ReportGenerator implements IReportGenerator {
         final Integer expensiveSaleId,
         final String worstVendorName) {
 
-        val contentStringBuilder = new StringBuilder();
-        contentStringBuilder.append(String.format(MESSAGE_FORMAT_COUNT_SALE_ID, countClient));
-        contentStringBuilder.append(String.format(MESSAGE_FORMAT_COUNT_VENDOR, countVendor));
-        contentStringBuilder.append(String.format(MESSAGE_FORMAT_COUNT_EXPENSIVE_SALE, expensiveSaleId));
-        contentStringBuilder.append(String.format(MESSAGE_FORMAT_COUNT_WORST_VENDOR, worstVendorName));
+        val content = new StringBuilder();
+        content.append(String.format(MESSAGE_FORMAT_COUNT_SALE_ID, countClient));
+        content.append(String.format(MESSAGE_FORMAT_COUNT_VENDOR, countVendor));
+        content.append(String.format(MESSAGE_FORMAT_COUNT_EXPENSIVE_SALE, expensiveSaleId));
+        content.append(String.format(MESSAGE_FORMAT_COUNT_WORST_VENDOR, worstVendorName));
 
-        return contentStringBuilder.toString();
+        return content.toString();
     }
 }
