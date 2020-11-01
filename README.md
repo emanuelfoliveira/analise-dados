@@ -2,7 +2,7 @@
 
 ## ![Execution Example](https://github.com/emanuelfoliveira/analise-dados/blob/master/execution-console.png)
 
-## Import File Example
+## Dat File Example
 
 Input File - teste.dat
 ```
