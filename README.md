@@ -14,12 +14,10 @@ Input File - teste.dat
 ```
 
 Output File - teste_01112020175430.done.dat
-```001ç1234567891234çPedroç50000
-001ç3245678865434çPauloç40000.99
-002ç2345675434544345çJose da SilvaçRural
-002ç2345675433444345çEduardo PereiraçRural
-003ç10ç[1-10-100,2-30-2.50,3-40-3.10]çPedro
-003ç08ç[1-34-10,2-33-1.50,3-40-0.10]çPaulo
+```Quantidade de clientes no arquivo de entrada:2 
+Quantidade de vendedor no arquivo de entrada:2 
+ID da venda mais cara:10 
+Pior Vendedor:Paulo
 ```
 
 ## About
