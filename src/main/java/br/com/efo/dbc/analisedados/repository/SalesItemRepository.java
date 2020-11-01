@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SalesItemRepository extends CrudRepository<SalesItemEntity, Long> {
 
-    @Query("SELECT DISTINCT salesEntity.saleId from SalesItemEntity where itemPrice = (SELECT MAX(itemPrice) from SalesItemEntity) ")
+    @Query("SELECT DISTINCT salesEntity.saleId FROM SalesItemEntity WHERE itemPrice = (SELECT MAX(itemPrice) FROM SalesItemEntity) ")
     Integer findExpensiveSaleId();
 
-    @Query("SELECT DISTINCT salesEntity.salesmanName from SalesItemEntity where itemPrice = (SELECT MIN(itemPrice) from SalesItemEntity) ")
+    @Query("SELECT DISTINCT salesEntity.salesmanName FROM SalesItemEntity WHERE itemPrice = (SELECT MIN(itemPrice) FROM SalesItemEntity) ")
     String findCheapestVendorName();
 
 }

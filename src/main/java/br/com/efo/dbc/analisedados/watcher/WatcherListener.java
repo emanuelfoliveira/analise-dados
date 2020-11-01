@@ -3,7 +3,7 @@ package br.com.efo.dbc.analisedados.watcher;
 import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.inputPath;
 
 import br.com.efo.dbc.analisedados.report.impl.ReportGenerator;
-import br.com.efo.dbc.analisedados.service.impl.ExtractDataHandler;
+import br.com.efo.dbc.analisedados.datareader.DataReader;
 import br.com.efo.dbc.analisedados.utils.DatabaseCleaner;
 import java.io.File;
 import java.io.IOException;
@@ -29,7 +29,7 @@ public class WatcherListener {
     private final WatchService watchService;
 
     @Autowired
-    private ExtractDataHandler extractDataHandler;
+    private DataReader dataReader;
 
     @Autowired
     private ReportGenerator reportGenerator;
@@ -83,7 +83,7 @@ public class WatcherListener {
     }
 
     private void process(final String stringPath, final String filename) throws IOException {
-        extractDataHandler.execute(new File(String.format("%s/%s", stringPath, filename)));
+        dataReader.execute(new File(String.format("%s/%s", stringPath, filename)));
         reportGenerator.execute(filename);
         databaseCleaner.clean();
     }

@@ -1,4 +1,4 @@
-package br.com.efo.dbc.analisedados.service.impl;
+package br.com.efo.dbc.analisedados.datareader;
 
 import static br.com.efo.dbc.analisedados.model.EntityCodeEnum.getByCode;
 
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class ExtractDataHandler {
+public class DataReader {
 
     private final static String DELIMITER = "ç";
 
@@ -30,7 +30,7 @@ public class ExtractDataHandler {
     private ISalesService salesService;
 
     public void execute(final File file) throws FileNotFoundException {
-        log.info("Data Extraction Started");
+        log.info("Data Reader Started");
         val scanner = new Scanner(file);
         while (scanner.hasNextLine()) {
             val optLine = Optional.ofNullable(scanner.nextLine());
@@ -38,7 +38,7 @@ public class ExtractDataHandler {
                 handler(optLine.get());
             }
         }
-        log.info("Data Extraction Finished");
+        log.info("Data Reader Finished");
     }
 
     private void handler(final String line) {
