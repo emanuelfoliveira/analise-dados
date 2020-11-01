@@ -5,7 +5,8 @@
 ## Import File Example
 
 Input File - teste.dat
-```001ç1234567891234çPedroç50000
+```
+001ç1234567891234çPedroç50000
 001ç3245678865434çPauloç40000.99
 002ç2345675434544345çJose da SilvaçRural
 002ç2345675433444345çEduardo PereiraçRural
@@ -14,7 +15,8 @@ Input File - teste.dat
 ```
 
 Output File - teste_01112020175430.done.dat
-```Quantidade de clientes no arquivo de entrada:2 
+```
+Quantidade de clientes no arquivo de entrada:2 
 Quantidade de vendedor no arquivo de entrada:2 
 ID da venda mais cara:10 
 Pior Vendedor:Paulo
