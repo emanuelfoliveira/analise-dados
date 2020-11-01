@@ -47,8 +47,8 @@ class WatcherListener {
             while ((key = watchService.take()) != null) {
                 for (val event : key.pollEvents()) {
                     val stringPath = inputPath().toString();
-                    log.info("NEW FILE WAS CREATED ON PATH: {}", stringPath);
                     val filename = event.context().toString();
+                    log.info("THE FILE {} WAS CREATED ON PATH: {}", filename, stringPath);
                     if (isFileExtensionDat(filename)) {
                         continue;
                     }
