@@ -1,6 +1,6 @@
 package br.com.efo.dbc.analisedados.service.impl;
 
-import br.com.efo.dbc.analisedados.handler.VendorHandler;
+import br.com.efo.dbc.analisedados.handler.impl.EntityHandler;
 import br.com.efo.dbc.analisedados.repository.VendorRepository;
 import br.com.efo.dbc.analisedados.service.IVendorService;
 import java.util.stream.StreamSupport;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 class VendorService implements IVendorService {
 
     @Autowired
-    private VendorHandler handler;
+    private EntityHandler handler;
 
     @Autowired
     private VendorRepository repository;
@@ -20,7 +20,7 @@ class VendorService implements IVendorService {
     @Override
     @Transactional
     public void execute(final String[] line) {
-        repository.save(handler.process(line));
+        repository.save(handler.buildVendor(line));
     }
 
     @Override

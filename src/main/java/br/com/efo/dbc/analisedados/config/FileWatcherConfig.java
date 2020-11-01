@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @Slf4j
-public class FileWatcherConfig {
+class FileWatcherConfig {
 
     @Bean
     public WatchService watchService() {

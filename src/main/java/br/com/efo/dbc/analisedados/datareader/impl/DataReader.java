@@ -1,7 +1,8 @@
-package br.com.efo.dbc.analisedados.datareader;
+package br.com.efo.dbc.analisedados.datareader.impl;
 
 import static br.com.efo.dbc.analisedados.model.EntityCodeEnum.getByCode;
 
+import br.com.efo.dbc.analisedados.datareader.IDataReader;
 import br.com.efo.dbc.analisedados.service.IClientService;
 import br.com.efo.dbc.analisedados.service.ISalesService;
 import br.com.efo.dbc.analisedados.service.IVendorService;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class DataReader {
+public class DataReader implements IDataReader {
 
     private final static String DELIMITER = "ç";
 
@@ -29,6 +30,7 @@ public class DataReader {
     @Autowired
     private ISalesService salesService;
 
+    @Override
     public void execute(final File file) throws FileNotFoundException {
         log.info("Data Reader Started");
         val scanner = new Scanner(file);

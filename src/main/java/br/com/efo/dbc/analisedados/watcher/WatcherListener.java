@@ -3,7 +3,7 @@ package br.com.efo.dbc.analisedados.watcher;
 import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.inputPath;
 
 import br.com.efo.dbc.analisedados.report.IReportGenerator;
-import br.com.efo.dbc.analisedados.datareader.DataReader;
+import br.com.efo.dbc.analisedados.datareader.impl.DataReader;
 import br.com.efo.dbc.analisedados.utils.DatabaseCleaner;
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
 @Component
 @AllArgsConstructor
 @Slf4j
-public class WatcherListener {
+class WatcherListener {
 
     private final static String FILE_EXTENSION = "dat";
 
@@ -48,7 +48,7 @@ public class WatcherListener {
                     val stringPath = inputPath().toString();
                     log.info("NEW FILE WAS CREATED ON PATH: {}", stringPath);
                     val filename = event.context().toString();
-                    if (validateFileExtension(filename)) {
+                    if (isFileExtensionDat(filename)) {
                         continue;
                     }
 
@@ -74,11 +74,11 @@ public class WatcherListener {
         }
     }
 
-    private boolean validateFileExtension(final String filename) {
+    private boolean isFileExtensionDat(final String filename) {
         if (FILE_EXTENSION.equals(com.google.common.io.Files.getFileExtension(filename))) {
             return Boolean.FALSE;
         }
-        
+
         log.info("The new file it's not a .dat. No report generated.");
         return Boolean.TRUE;
     }
