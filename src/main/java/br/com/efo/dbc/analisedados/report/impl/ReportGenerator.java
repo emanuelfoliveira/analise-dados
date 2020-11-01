@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class ReportGenerator implements IReportGenerator {
+class ReportGenerator implements IReportGenerator {
 
     private final static String MESSAGE_FORMAT_COUNT_SALE_ID = "Quantidade de clientes no arquivo de entrada:%s \n";
     private final static String MESSAGE_FORMAT_COUNT_VENDOR = "Quantidade de vendedor no arquivo de entrada:%s \n";

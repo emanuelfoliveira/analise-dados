@@ -2,7 +2,7 @@ package br.com.efo.dbc.analisedados.watcher;
 
 import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.inputPath;
 
-import br.com.efo.dbc.analisedados.report.impl.ReportGenerator;
+import br.com.efo.dbc.analisedados.report.IReportGenerator;
 import br.com.efo.dbc.analisedados.datareader.DataReader;
 import br.com.efo.dbc.analisedados.utils.DatabaseCleaner;
 import java.io.File;
@@ -32,7 +32,7 @@ public class WatcherListener {
     private DataReader dataReader;
 
     @Autowired
-    private ReportGenerator reportGenerator;
+    private IReportGenerator reportGenerator;
 
     @Autowired
     private DatabaseCleaner databaseCleaner;
