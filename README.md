@@ -1,6 +1,6 @@
 # Data Analyzer System
 
-## ![Execution Example](https://github.com/emanuelfoliveira/analise-dados/blob/master/execution-console.png)
+## ![Execution Example](https://github.com/emanuelfoliveira/analise-dados/blob/master/console-jar-execution.png)
 
 ## Dat File Example
 
