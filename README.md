@@ -2,9 +2,9 @@
 
 ## ![Execution Example](https://github.com/emanuelfoliveira/analise-dados/blob/master/console-image-example.png)
 
-## Import Fila Example
+## Import File Example
 
-Input File
+Input File - teste.dat
 ```001ç1234567891234çPedroç50000
 001ç3245678865434çPauloç40000.99
 002ç2345675434544345çJose da SilvaçRural
@@ -13,7 +13,7 @@ Input File
 003ç08ç[1-34-10,2-33-1.50,3-40-0.10]çPaulo
 ```
 
-Output File
+Output File - teste_01112020175430.done.dat
 ```001ç1234567891234çPedroç50000
 001ç3245678865434çPauloç40000.99
 002ç2345675434544345çJose da SilvaçRural
