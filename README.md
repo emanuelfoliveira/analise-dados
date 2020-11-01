@@ -1,6 +1,6 @@
 # Data Analyzer System
 
-## ![Execution Example](https://github.com/emanuelfoliveira/analise-dados/blob/master/console-image-example.png)
+## ![Execution Example](https://github.com/emanuelfoliveira/analise-dados/blob/master/execution-console.png)
 
 ## Import File Example
 
