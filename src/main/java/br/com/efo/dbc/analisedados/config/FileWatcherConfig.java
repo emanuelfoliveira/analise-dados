@@ -20,9 +20,9 @@ class FileWatcherConfig {
     @Bean
     public WatchService watchService() {
         val path = inputPath();
-        log.info("MONITORING_FOLDER: {}", path);
         WatchService watchService = null;
         try {
+            log.info("MONITORING_FOLDER: {}", path);
             watchService = FileSystems.getDefault().newWatchService();
 
             isValidDirectory(path);

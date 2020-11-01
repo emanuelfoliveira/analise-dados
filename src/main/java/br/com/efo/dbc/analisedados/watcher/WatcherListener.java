@@ -5,6 +5,7 @@ import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.inputPath;
 import br.com.efo.dbc.analisedados.datareader.IDataReader;
 import br.com.efo.dbc.analisedados.report.IReportGenerator;
 import br.com.efo.dbc.analisedados.utils.DatabaseCleaner;
+import com.google.common.io.Files;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.WatchKey;
@@ -75,7 +76,7 @@ class WatcherListener {
     }
 
     private boolean isFileExtensionDat(final String filename) {
-        if (FILE_EXTENSION.equals(com.google.common.io.Files.getFileExtension(filename))) {
+        if (FILE_EXTENSION.equals(Files.getFileExtension(filename))) {
             return Boolean.FALSE;
         }
 
@@ -83,8 +84,8 @@ class WatcherListener {
         return Boolean.TRUE;
     }
 
-    private void process(final String stringPath, final String filename) throws IOException {
-        dataReader.execute(new File(String.format("%s/%s", stringPath, filename)));
+    private void process(final String path, final String filename) throws IOException {
+        dataReader.execute(new File(String.format("%s/%s", path, filename)));
         reportGenerator.execute(filename);
         databaseCleaner.clean();
     }
