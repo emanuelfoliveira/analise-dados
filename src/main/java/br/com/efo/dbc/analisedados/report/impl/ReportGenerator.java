@@ -6,6 +6,7 @@ import br.com.efo.dbc.analisedados.report.IReportGenerator;
 import br.com.efo.dbc.analisedados.service.IClientService;
 import br.com.efo.dbc.analisedados.service.ISalesItemService;
 import br.com.efo.dbc.analisedados.service.IVendorService;
+import com.google.common.io.Files;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -44,7 +45,7 @@ class ReportGenerator implements IReportGenerator {
         val countVendor = vendorService.count();
         val expensiveSaleId = salesItemService.findExpensiveSale();
         val worstVendorName = salesItemService.findWorstVendorName();
-        val flatFileName = String.format(FILE_NAME_FORMAT, fileName,new SimpleDateFormat(DATE_PATTERN).format(new Date()));
+        val flatFileName = String.format(FILE_NAME_FORMAT, Files.getNameWithoutExtension(fileName), new SimpleDateFormat(DATE_PATTERN).format(new Date()));
 
         val outputFile = new FileWriter(new File(outputPath().toString().concat(flatFileName)));
         outputFile.write(buildReportContent(countClient, countVendor, expensiveSaleId, worstVendorName));
