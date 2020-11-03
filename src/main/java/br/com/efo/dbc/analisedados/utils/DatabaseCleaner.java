@@ -1,9 +1,10 @@
 package br.com.efo.dbc.analisedados.utils;
 
-import br.com.efo.dbc.analisedados.repository.ClientRepository;
-import br.com.efo.dbc.analisedados.repository.SalesItemRepository;
-import br.com.efo.dbc.analisedados.repository.SalesRepository;
-import br.com.efo.dbc.analisedados.repository.VendorRepository;
+import br.com.efo.dbc.analisedados.model.Client;
+import br.com.efo.dbc.analisedados.model.Sales;
+import br.com.efo.dbc.analisedados.model.SalesItem;
+import br.com.efo.dbc.analisedados.model.Vendor;
+import br.com.efo.dbc.analisedados.service.IGenericService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -11,22 +12,26 @@ import org.springframework.stereotype.Component;
 public class DatabaseCleaner {
 
     @Autowired
-    private ClientRepository clientRepository;
+    private IGenericService<Vendor> vendorGenericService;
 
     @Autowired
-    private VendorRepository vendorRepository;
+    private IGenericService<Client> clientGenericService;
 
     @Autowired
-    private SalesRepository salesRepository;
+    private IGenericService<Sales> salesGenericService;
 
     @Autowired
-    private SalesItemRepository salesItemRepository;
+    private IGenericService<SalesItem> salesItemGenericService;
 
-    public void clean() {
-        clientRepository.deleteAll();
-        vendorRepository.deleteAll();
-        salesRepository.deleteAll();
-        salesItemRepository.deleteAll();
+    public void clean() throws Exception {
+        try {
+            vendorGenericService.deleteAll(Vendor.class);
+            clientGenericService.deleteAll(Client.class);
+            salesGenericService.deleteAll(Sales.class);
+            salesItemGenericService.deleteAll(SalesItem.class);
+        } catch (Exception ex) {
+            throw new Exception("Problem to clean database.");
+        }
     }
 
 }

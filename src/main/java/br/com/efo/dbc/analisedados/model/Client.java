@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
@@ -14,7 +15,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @Builder
-public class ClientEntity {
+@EqualsAndHashCode
+public class Client implements BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

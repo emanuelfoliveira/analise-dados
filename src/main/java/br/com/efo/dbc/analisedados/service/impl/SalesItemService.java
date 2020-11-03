@@ -1,12 +1,13 @@
 package br.com.efo.dbc.analisedados.service.impl;
 
+import br.com.efo.dbc.analisedados.model.SalesItem;
 import br.com.efo.dbc.analisedados.repository.SalesItemRepository;
 import br.com.efo.dbc.analisedados.service.ISalesItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-class SalesItemService implements ISalesItemService {
+class SalesItemService extends GenericService<SalesItem> implements ISalesItemService {
 
     @Autowired
     private SalesItemRepository repository;

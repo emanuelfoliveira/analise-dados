@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
@@ -16,15 +17,16 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @Builder
-public class SalesItemEntity {
+@EqualsAndHashCode
+public class SalesItem implements BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "SALES_ENTITY_ID")
-    private SalesEntity salesEntity;
+    @JoinColumn(name = "SALES_ID")
+    private Sales sales;
     private String itemId;
     private String itemQuantity;
     private Double itemPrice;

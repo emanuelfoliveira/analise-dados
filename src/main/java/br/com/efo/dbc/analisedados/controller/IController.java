@@ -1,9 +1,9 @@
-package br.com.efo.dbc.analisedados.datareader;
+package br.com.efo.dbc.analisedados.controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public interface IDataReader {
+public interface IController {
 
     void execute(final File file) throws FileNotFoundException;
 
