@@ -1,6 +1,6 @@
 package br.com.efo.dbc.analisedados.service.impl;
 
-import br.com.efo.dbc.analisedados.model.BaseEntity;
+import br.com.efo.dbc.analisedados.model.GenericEntity;
 import br.com.efo.dbc.analisedados.repository.CommonRepository;
 import br.com.efo.dbc.analisedados.service.IGenericService;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GenericService<T extends BaseEntity> implements IGenericService<T> {
+public class GenericService<T extends GenericEntity> implements IGenericService<T> {
 
     @Autowired
     private CommonRepository<T> repository;
@@ -21,7 +21,7 @@ public class GenericService<T extends BaseEntity> implements IGenericService<T> 
 
     @Override
     @Transactional
-    public T save(T entity) {
+    public T save(final T entity) {
         return repository.save(entity);
     }
 
@@ -32,7 +32,7 @@ public class GenericService<T extends BaseEntity> implements IGenericService<T> 
     }
 
     @Override
-    public int count(Class<T> clazz) {
+    public int count(final Class<T> clazz) {
         return findAll(clazz).size();
     }
 

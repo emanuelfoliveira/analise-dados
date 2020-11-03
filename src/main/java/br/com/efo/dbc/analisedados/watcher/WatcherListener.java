@@ -28,8 +28,7 @@ public class WatcherListener {
     private final WatchService watchService;
 
     @Autowired
-    private IController iController;
-
+    private IController controller;
 
     @Async
     @PostConstruct
@@ -45,7 +44,7 @@ public class WatcherListener {
                         continue;
                     }
 
-                    iController.execute(new File(String.format("%s/%s", stringPath, filename)));
+                    controller.execute(new File(String.format("%s/%s", stringPath, filename)));
                 }
                 key.reset();
             }

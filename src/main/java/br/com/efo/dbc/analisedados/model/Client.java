@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @EqualsAndHashCode
-public class Client implements BaseEntity {
+public class Client implements GenericEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

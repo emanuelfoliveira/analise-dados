@@ -40,8 +40,7 @@ public class ReportGenerator implements IReportGenerator {
 
     @Override
     public void execute(final File fileName) throws IOException {
-        val flatFileName = getFlatFilename(fileName.getName());
-        writeOutputFile(flatFileName);
+        writeOutputFile(getFlatFilename(fileName.getName()));
     }
 
     private void writeOutputFile(final String flatFileName) throws IOException {
@@ -51,13 +50,12 @@ public class ReportGenerator implements IReportGenerator {
     }
 
     private String buildReportContent() {
-        val content = new StringBuilder();
-        content.append(String.format(MESSAGE_FORMAT_COUNT_SALE_ID, clientGenericService.count(Client.class)));
-        content.append(String.format(MESSAGE_FORMAT_COUNT_VENDOR, vendorGenericService.count(Vendor.class)));
-        content.append(String.format(MESSAGE_FORMAT_COUNT_EXPENSIVE_SALE, salesItemService.findExpensiveSale()));
-        content.append(String.format(MESSAGE_FORMAT_COUNT_WORST_VENDOR, salesItemService.findWorstVendorName()));
-
-        return content.toString();
+        return new StringBuilder()
+            .append(String.format(MESSAGE_FORMAT_COUNT_SALE_ID, clientGenericService.count(Client.class)))
+            .append(String.format(MESSAGE_FORMAT_COUNT_VENDOR, vendorGenericService.count(Vendor.class)))
+            .append(String.format(MESSAGE_FORMAT_COUNT_EXPENSIVE_SALE, salesItemService.findExpensiveSale()))
+            .append(String.format(MESSAGE_FORMAT_COUNT_WORST_VENDOR, salesItemService.findWorstVendorName()))
+            .toString();
     }
 
     private String getFlatFilename(final String fileName) {

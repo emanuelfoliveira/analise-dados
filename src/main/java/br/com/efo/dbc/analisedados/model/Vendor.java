@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @EqualsAndHashCode
-public class Vendor implements BaseEntity {
+public class Vendor implements GenericEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

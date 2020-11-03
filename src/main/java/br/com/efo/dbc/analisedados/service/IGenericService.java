@@ -1,9 +1,9 @@
 package br.com.efo.dbc.analisedados.service;
 
-import br.com.efo.dbc.analisedados.model.BaseEntity;
+import br.com.efo.dbc.analisedados.model.GenericEntity;
 import java.util.List;
 
-public interface IGenericService<T extends BaseEntity> {
+public interface IGenericService<T extends GenericEntity> {
 
     List<T> findAll(final Class<T> clazz);
 

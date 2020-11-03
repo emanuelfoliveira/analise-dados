@@ -1,6 +1,6 @@
 package br.com.efo.dbc.analisedados.repository;
 
-import br.com.efo.dbc.analisedados.model.BaseEntity;
+import br.com.efo.dbc.analisedados.model.GenericEntity;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -8,7 +8,7 @@ import lombok.val;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class CommonRepository<T extends BaseEntity> {
+public class CommonRepository<T extends GenericEntity> {
 
     private final static String STR_FORMAT_FIND_ALL_QUERY = "select o from %s o";
 
