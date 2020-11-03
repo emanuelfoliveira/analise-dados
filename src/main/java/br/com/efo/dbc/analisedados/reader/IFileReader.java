@@ -1,4 +1,4 @@
-package br.com.efo.dbc.analisedados.filereader;
+package br.com.efo.dbc.analisedados.reader;
 
 import java.io.File;
 import java.util.List;

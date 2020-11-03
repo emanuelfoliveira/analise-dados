@@ -1,6 +1,6 @@
-package br.com.efo.dbc.analisedados.filereader.impl;
+package br.com.efo.dbc.analisedados.reader.impl;
 
-import br.com.efo.dbc.analisedados.filereader.IFileReader;
+import br.com.efo.dbc.analisedados.reader.IFileReader;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-class FileReader implements IFileReader {
+public class FileReader implements IFileReader {
 
     @Override
     public List<String> read(final File file) throws Exception {

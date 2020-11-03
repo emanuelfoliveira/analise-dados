@@ -4,7 +4,9 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Optional;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class AnaliseDadosUtils {
 
     private final static String PATH = "user.home";
@@ -13,7 +15,12 @@ public class AnaliseDadosUtils {
     private final static String PATH_DATA_OUT = "out";
 
     public static String getFieldByPosition(final String[] value, final int position) {
-        return Optional.ofNullable(value[position]).orElse("");
+        try {
+            return Optional.ofNullable(value[position]).orElse("");
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            log.error("Delimiter of the line is wrong. Line {}", value);
+            return "";
+        }
     }
 
     public static Path inputPath() {

@@ -3,8 +3,8 @@ package br.com.efo.dbc.analisedados.controller.impl;
 import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.outputPath;
 
 import br.com.efo.dbc.analisedados.controller.IController;
-import br.com.efo.dbc.analisedados.filereader.IFileReader;
 import br.com.efo.dbc.analisedados.handler.IFileHandler;
+import br.com.efo.dbc.analisedados.reader.IFileReader;
 import br.com.efo.dbc.analisedados.report.IReportGenerator;
 import br.com.efo.dbc.analisedados.utils.DatabaseCleaner;
 import java.io.File;
