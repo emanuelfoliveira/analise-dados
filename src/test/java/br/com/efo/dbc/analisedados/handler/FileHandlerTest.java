@@ -43,7 +43,7 @@ public class FileHandlerTest {
 
         Mockito.doReturn(object).when(clientGenericService).save(object);
 
-        fileHandler.persist(list);
+        fileHandler.persistByEntityType(list);
         Mockito.verify(clientGenericService, Mockito.times(1)).save(object);
     }
 
@@ -55,7 +55,7 @@ public class FileHandlerTest {
 
         Mockito.doReturn(object).when(salesGenericService).save(object);
 
-        fileHandler.persist(list);
+        fileHandler.persistByEntityType(list);
         Mockito.verify(salesGenericService, Mockito.times(1)).save(object);
     }
 
@@ -68,7 +68,7 @@ public class FileHandlerTest {
 
         Mockito.doReturn(object).when(vendorGenericService).save(object);
 
-        fileHandler.persist(list);
+        fileHandler.persistByEntityType(list);
         Mockito.verify(vendorGenericService, Mockito.times(1)).save(object);
     }
 

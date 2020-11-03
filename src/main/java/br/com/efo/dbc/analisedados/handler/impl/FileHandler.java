@@ -33,7 +33,7 @@ public class FileHandler implements IFileHandler {
     private IGenericService<Sales> salesGenericService;
 
     @Override
-    public void persist(final List<String> lines) throws Exception {
+    public void persistByEntityType(final List<String> lines) throws Exception {
         try {
             lines.forEach(line -> {
                 val splittedLine = line.split(DELIMITER);

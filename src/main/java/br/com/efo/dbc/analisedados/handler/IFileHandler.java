@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface IFileHandler {
 
-    void persist(final List<String> lines) throws Exception;
+    void persistByEntityType(final List<String> lines) throws Exception;
 
 }

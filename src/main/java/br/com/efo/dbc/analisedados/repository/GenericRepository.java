@@ -8,7 +8,7 @@ import lombok.val;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class CommonRepository<T extends GenericEntity> {
+public class GenericRepository<T extends GenericEntity> {
 
     private final static String STR_FORMAT_FIND_ALL_QUERY = "select o from %s o";
 

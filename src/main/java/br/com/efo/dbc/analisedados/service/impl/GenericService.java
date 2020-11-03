@@ -1,7 +1,7 @@
 package br.com.efo.dbc.analisedados.service.impl;
 
 import br.com.efo.dbc.analisedados.model.GenericEntity;
-import br.com.efo.dbc.analisedados.repository.CommonRepository;
+import br.com.efo.dbc.analisedados.repository.GenericRepository;
 import br.com.efo.dbc.analisedados.service.IGenericService;
 import java.util.List;
 import javax.transaction.Transactional;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class GenericService<T extends GenericEntity> implements IGenericService<T> {
 
     @Autowired
-    private CommonRepository<T> repository;
+    private GenericRepository<T> repository;
 
     @Override
     public List<T> findAll(final Class<T> clazz) {
