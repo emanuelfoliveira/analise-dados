@@ -20,7 +20,7 @@ $ java -jar target/analise-dados-1.0.jar
 ```
 $ docker pull emanuelfoliveira/analise-dados:1.0
 
-$ docker images (Find the image emanuelfoliveira/analise-dados and copy the IMAGE_ID)
+$ docker images (Find the REPOSITORY emanuelfoliveira/analise-dados and copy the IMAGE_ID)
 
 $ docker run **IMAGE_ID**
 ```
