@@ -22,7 +22,7 @@ $ docker pull emanuelfoliveira/analise-dados:1.0
 
 $ docker images (Find the REPOSITORY emanuelfoliveira/analise-dados and copy the IMAGE_ID)
 
-$ docker run **IMAGE_ID**
+$ docker run ***IMAGE_ID***
 ```
 
 #### Using the Maven Plugin
