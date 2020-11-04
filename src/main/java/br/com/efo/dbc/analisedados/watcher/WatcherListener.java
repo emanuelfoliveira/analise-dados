@@ -45,7 +45,8 @@ public class WatcherListener {
                         continue;
                     }
 
-                    controller.execute(new File(String.format(REGEX_PATH_NAME, stringPath, filename)));
+                    val fullPath = String.format(REGEX_PATH_NAME, stringPath, filename);
+                    controller.execute(new File(fullPath));
                 }
                 key.reset();
             }
