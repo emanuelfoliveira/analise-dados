@@ -2,7 +2,6 @@ package br.com.efo.dbc.analisedados.handler.impl;
 
 import static br.com.efo.dbc.analisedados.model.EntityCodeEnum.getEntityByCode;
 
-import br.com.efo.dbc.analisedados.factory.IEntityFactory;
 import br.com.efo.dbc.analisedados.factory.impl.ClientFactory;
 import br.com.efo.dbc.analisedados.factory.impl.SalesFactory;
 import br.com.efo.dbc.analisedados.factory.impl.VendorFactory;
