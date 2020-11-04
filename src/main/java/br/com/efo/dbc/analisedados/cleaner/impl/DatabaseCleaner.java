@@ -1,5 +1,6 @@
-package br.com.efo.dbc.analisedados.utils;
+package br.com.efo.dbc.analisedados.cleaner.impl;
 
+import br.com.efo.dbc.analisedados.cleaner.IDatabaseCleaner;
 import br.com.efo.dbc.analisedados.model.Client;
 import br.com.efo.dbc.analisedados.model.Sales;
 import br.com.efo.dbc.analisedados.model.SalesItem;
@@ -9,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DatabaseCleaner {
+public class DatabaseCleaner implements IDatabaseCleaner {
 
     @Autowired
     private IGenericService<Vendor> vendorGenericService;
@@ -23,6 +24,7 @@ public class DatabaseCleaner {
     @Autowired
     private IGenericService<SalesItem> salesItemGenericService;
 
+    @Override
     public void clean() throws Exception {
         try {
             vendorGenericService.deleteAll(Vendor.class);

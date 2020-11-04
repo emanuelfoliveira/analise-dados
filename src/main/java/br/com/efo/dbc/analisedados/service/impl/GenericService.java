@@ -2,7 +2,6 @@ package br.com.efo.dbc.analisedados.service.impl;
 
 import br.com.efo.dbc.analisedados.model.GenericEntity;
 import br.com.efo.dbc.analisedados.repository.IGenericRepository;
-import br.com.efo.dbc.analisedados.repository.impl.GenericRepository;
 import br.com.efo.dbc.analisedados.service.IGenericService;
 import java.util.List;
 import javax.transaction.Transactional;

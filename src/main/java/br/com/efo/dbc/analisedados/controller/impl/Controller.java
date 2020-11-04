@@ -2,11 +2,11 @@ package br.com.efo.dbc.analisedados.controller.impl;
 
 import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.outputPath;
 
+import br.com.efo.dbc.analisedados.cleaner.IDatabaseCleaner;
 import br.com.efo.dbc.analisedados.controller.IController;
 import br.com.efo.dbc.analisedados.handler.IFileHandler;
 import br.com.efo.dbc.analisedados.reader.IFileReader;
 import br.com.efo.dbc.analisedados.report.IReportGenerator;
-import br.com.efo.dbc.analisedados.utils.DatabaseCleaner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +28,7 @@ public class Controller implements IController {
     private IReportGenerator reportGenerator;
 
     @Autowired
-    private DatabaseCleaner databaseCleaner;
+    private IDatabaseCleaner databaseCleaner;
 
     @Override
     public void execute(final File file) throws FileNotFoundException {
