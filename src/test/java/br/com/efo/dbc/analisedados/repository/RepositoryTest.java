@@ -12,7 +12,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 public class RepositoryTest {
 
     @Autowired
-    private SalesItemRepository repository;
+    private ISalesItemRepository repository;
 
     @Test
     void injectedRepositoryNotNull() {

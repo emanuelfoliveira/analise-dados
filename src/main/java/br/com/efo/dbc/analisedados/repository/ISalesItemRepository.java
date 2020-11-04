@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SalesItemRepository extends JpaRepository<SalesItem, Long> {
+public interface ISalesItemRepository extends JpaRepository<SalesItem, Long> {
 
     @Query("SELECT DISTINCT sales.saleId FROM SalesItem WHERE itemPrice = (SELECT MAX(itemPrice) FROM SalesItem) ")
     Integer findExpensiveSaleId();
