@@ -23,21 +23,18 @@ public class SalesFactory implements IEntityFactory {
 
     @Override
     public Sales create(final String[] line) {
-        val saleId = getFieldByPosition(line, VECTOR_POSITION_ONE);
-        val items = line[VECTOR_POSITION_TWO].replaceAll(SQUARE_BRACKETS_REGEX, "");
-        val salesmanName = getFieldByPosition(line, VECTOR_POSITION_THREE);
-
-        val spplitedItems = items.split(DETAILS_DELIMITER);
-
         return Sales
             .builder()
-            .saleId(Integer.parseInt(saleId))
-            .salesItemEntity(getSalesItems(spplitedItems))
-            .salesmanName(salesmanName)
+            .saleId(Integer.parseInt(getFieldByPosition(line, VECTOR_POSITION_ONE)))
+            .salesItemEntity(getSalesItems(line))
+            .salesmanName( getFieldByPosition(line, VECTOR_POSITION_THREE))
             .build();
     }
 
-    private List<SalesItem> getSalesItems(final String[] spplitedItems) {
+    private List<SalesItem> getSalesItems(final String[] line) {
+        val items = line[VECTOR_POSITION_TWO].replaceAll(SQUARE_BRACKETS_REGEX, "");
+        val spplitedItems = items.split(DETAILS_DELIMITER);
+
         val listItems = new ArrayList<SalesItem>();
         for (int i = 0; i < spplitedItems.length; i++) {
             val itemsLine = spplitedItems[i].split(ITEM_DETAILS_DELIMITER);

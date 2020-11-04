@@ -16,15 +16,11 @@ public class ClientFactory implements IEntityFactory {
 
     @Override
     public Client create(final String[] line) {
-        val cnpj = getFieldByPosition(line, VECTOR_POSITION_ONE);
-        val name = getFieldByPosition(line, VECTOR_POSITION_TWO);
-        val businessArea = getFieldByPosition(line, VECTOR_POSITION_THREE);
-
         return Client
             .builder()
-            .cnpj(cnpj)
-            .name(name)
-            .businessArea(businessArea)
+            .cnpj(getFieldByPosition(line, VECTOR_POSITION_ONE))
+            .name(getFieldByPosition(line, VECTOR_POSITION_TWO))
+            .businessArea(getFieldByPosition(line, VECTOR_POSITION_THREE))
             .build();
     }
 }

@@ -16,15 +16,11 @@ public class VendorFactory implements IEntityFactory {
 
     @Override
     public Vendor create(final String[] line) {
-        val cpf = getFieldByPosition(line, VECTOR_POSITION_ONE);
-        val name = getFieldByPosition(line, VECTOR_POSITION_TWO);
-        val salary = getFieldByPosition(line, VECTOR_POSITION_THREE);
-
         return Vendor
             .builder()
-            .cpf(cpf)
-            .name(name)
-            .salary(salary)
+            .cpf(getFieldByPosition(line, VECTOR_POSITION_ONE))
+            .name(getFieldByPosition(line, VECTOR_POSITION_TWO))
+            .salary(getFieldByPosition(line, VECTOR_POSITION_THREE))
             .build();
     }
 }
