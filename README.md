@@ -15,12 +15,12 @@ Then you can run the JAR file:
 bash
 $ java -jar target/analise-dados-1.0.jar
 ```
-#### Using Docker
+#### Using Docker (https://hub.docker.com/repository/docker/emanuelfoliveira/analise-dados)
 
 ```
 $ docker pull emanuelfoliveira/analise-dados:1.0
 
-$ docker images (Find the image emanuelfoliveira/analise-dados and copy the IMAGE_ID)
+$ docker images (Find the REPOSITORY emanuelfoliveira/analise-dados and copy the IMAGE_ID)
 
 $ docker run **IMAGE_ID**
 ```
