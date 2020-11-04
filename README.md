@@ -15,7 +15,7 @@ Then you can run the JAR file:
 bash
 $ java -jar target/analise-dados-1.0.jar
 ```
-#### Using Docker
+#### Using Docker (https://hub.docker.com/repository/docker/emanuelfoliveira/analise-dados)
 
 ```
 $ docker pull emanuelfoliveira/analise-dados:1.0
