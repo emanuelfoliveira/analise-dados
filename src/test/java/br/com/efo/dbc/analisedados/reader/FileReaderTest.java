@@ -17,7 +17,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ExtendWith(SpringExtension.class)
 public class FileReaderTest {
 
-    private static final String FILE_NAME = "teste.dat";
+    private static final String FILE_NAME = "/teste.dat";
 
     @BeforeAll
     @SneakyThrows

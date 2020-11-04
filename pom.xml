@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>br.com.efo.dbc</groupId>
 	<artifactId>analise-dados</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>analise-dados</name>
 	<description>Sistema Análise de Dados</description>
 

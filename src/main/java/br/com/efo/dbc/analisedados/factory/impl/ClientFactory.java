@@ -5,7 +5,9 @@ import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.getFieldByPosi
 import br.com.efo.dbc.analisedados.factory.IEntityFactory;
 import br.com.efo.dbc.analisedados.model.Client;
 import lombok.val;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ClientFactory implements IEntityFactory {
 
     private final static Integer VECTOR_POSITION_ONE = 1;

@@ -1,6 +1,6 @@
 # Data Analyzer System
 
-## ![Execution Example](https://github.com/emanuelfoliveira/analise-dados/blob/master/console-jar-execution.png)
+## ![Execution Example](https://github.com/emanuelfoliveira/analise-dados/blob/master/mvn-run-console.png)
 
 ## Dat File Example
 
@@ -99,7 +99,7 @@ To run that application, use the java -jar command, as follows:
 
 ```
 bash
-$ java -jar target/analise-dados-0.0.1-SNAPSHOT.jar
+$ java -jar target/analise-dados-1.0.jar
 ```
 
 To exit the application, press **ctrl-c**.

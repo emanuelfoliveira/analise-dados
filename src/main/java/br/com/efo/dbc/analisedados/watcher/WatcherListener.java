@@ -24,6 +24,7 @@ import org.springframework.stereotype.Component;
 public class WatcherListener {
 
     private final static String FILE_EXTENSION = "dat";
+    private final static String REGEX_PATH_NAME = "%s/%s";
 
     private final WatchService watchService;
 
@@ -44,7 +45,7 @@ public class WatcherListener {
                         continue;
                     }
 
-                    controller.execute(new File(String.format("%s/%s", stringPath, filename)));
+                    controller.execute(new File(String.format(REGEX_PATH_NAME, stringPath, filename)));
                 }
                 key.reset();
             }

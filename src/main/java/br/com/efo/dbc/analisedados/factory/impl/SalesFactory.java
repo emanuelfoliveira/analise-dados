@@ -8,7 +8,9 @@ import br.com.efo.dbc.analisedados.model.SalesItem;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.val;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SalesFactory implements IEntityFactory {
 
     private final static String DETAILS_DELIMITER = ",";

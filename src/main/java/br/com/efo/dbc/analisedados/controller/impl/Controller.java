@@ -38,7 +38,7 @@ public class Controller implements IController {
             log.info("Data Reader Finished");
 
             log.info("Persist Data Started");
-            fileHandler.persistByEntityType(lines);
+            fileHandler.persistData(lines);
             log.info("Data Persisted");
 
             log.info("Report Generator Started");
