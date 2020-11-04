@@ -8,33 +8,21 @@ It was made using **Java 11**, **Maven**, **Spring Boot**, **Spring Data JPA**, 
 
 ## Configuration
 
-
 #### Using Executable Jar
 
 Then you can run the JAR file:
 ```
 bash
-$ java -jar target/analise-dados.jar
+$ java -jar target/analise-dados-1.0.jar
 ```
-
-### Maven
-
-Open a terminal and run the following commands to ensure that you have valid versions of Java and Maven installed:
+#### Using Docker
 
 ```
-bash
-$ java -version
-java version "1.8.0_151"
-Java(TM) SE Runtime Environment (build 11.8.0_151-b14)
-Java HotSpot(TM) 64-Bit Server VM
-```
+$ docker pull emanuelfoliveira/analise-dados:1.0
 
-```
-bash
-$ mvn -v
-Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T16:41:47+00:00)
-Maven home: /usr/local/Cellar/maven/3.3.9/libexec
-Java version: 1.8.0_102, vendor: Oracle Corporation
+$ docker images (Find the image emanuelfoliveira/analise-dados and copy the IMAGE_ID)
+
+$ docker run **IMAGE_ID**
 ```
 
 #### Using the Maven Plugin
