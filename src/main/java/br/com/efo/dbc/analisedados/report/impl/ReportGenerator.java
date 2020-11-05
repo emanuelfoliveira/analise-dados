@@ -1,6 +1,7 @@
 package br.com.efo.dbc.analisedados.report.impl;
 
 import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.outputPath;
+import static br.com.efo.dbc.analisedados.utils.FileWriterUtils.writeOutputFile;
 
 import br.com.efo.dbc.analisedados.model.Client;
 import br.com.efo.dbc.analisedados.model.Vendor;
@@ -9,7 +10,6 @@ import br.com.efo.dbc.analisedados.service.IGenericService;
 import br.com.efo.dbc.analisedados.service.ISalesItemService;
 import com.google.common.io.Files;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,6 +28,7 @@ public class ReportGenerator implements IReportGenerator {
     private final static String MESSAGE_FORMAT_COUNT_WORST_VENDOR = "Pior Vendedor:%s";
     private final static String DATE_PATTERN = "ddMMyyyyHHmmss";
     private final static String FILE_NAME_FORMAT = "/%s_%s.done.dat";
+    private final static String FULL_PATH_FORMAT = "%s%s";
 
     @Autowired
     private IGenericService<Vendor> vendorGenericService;
@@ -39,14 +40,10 @@ public class ReportGenerator implements IReportGenerator {
     private ISalesItemService salesItemService;
 
     @Override
-    public void execute(final File fileName) throws IOException {
-        writeOutputFile(getFlatFilename(fileName.getName()));
-    }
+    public void execute(final File filename) throws IOException {
+        val filePath = String.format(FULL_PATH_FORMAT, outputPath().toString(), getFlatFilename(filename.getName()));
 
-    private void writeOutputFile(final String flatFileName) throws IOException {
-        val outputFile = new FileWriter(new File(outputPath().toString().concat(flatFileName)));
-        outputFile.write(buildReportContent());
-        outputFile.close();
+        writeOutputFile(new File(filePath), buildReportContent());
     }
 
     private String buildReportContent() {
