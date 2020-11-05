@@ -14,9 +14,9 @@ public class FileWriterUtils {
     private final static String FILE_NAME_FORMAT = "/%s_%s.done.dat";
 
     public static void write(final File file, final String content) throws IOException {
-        val outputFile = new FileWriter(file);
-        outputFile.write(content);
-        outputFile.close();
+        val fileWriter = new FileWriter(file);
+        fileWriter.write(content);
+        fileWriter.close();
     }
 
     public static String buildFlatFilename(final String filename) {
