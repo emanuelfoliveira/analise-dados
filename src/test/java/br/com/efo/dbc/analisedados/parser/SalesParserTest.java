@@ -1,6 +1,6 @@
-package br.com.efo.dbc.analisedados.builder;
+package br.com.efo.dbc.analisedados.parser;
 
-import static br.com.efo.dbc.analisedados.builder.SalesBuilder.buildSales;
+import static br.com.efo.dbc.analisedados.parser.SalesParser.parseSales;
 
 import br.com.efo.dbc.analisedados.model.Sales;
 import br.com.efo.dbc.analisedados.model.SalesItem;
@@ -12,14 +12,14 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-public class SalesBuilderTest {
+public class SalesParserTest {
 
     private final static String DELIMITER = "ç";
 
     @Test
-    public void sales_build_sucess() {
+    public void sales_sucess() {
         val line = "003ç10ç[1-10-100]çPedro".split(DELIMITER);
-        val entity = buildSales(line);
+        val entity = parseSales(line);
 
         Assertions.assertEquals(entity, build());
     }

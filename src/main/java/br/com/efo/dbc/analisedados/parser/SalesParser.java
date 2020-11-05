@@ -1,4 +1,4 @@
-package br.com.efo.dbc.analisedados.builder;
+package br.com.efo.dbc.analisedados.parser;
 
 import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.getFieldByPosition;
 
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.val;
 
-public class SalesBuilder {
+public class SalesParser {
 
     private final static String DETAILS_DELIMITER = ",";
     private final static String ITEM_DETAILS_DELIMITER = "-";
@@ -18,7 +18,7 @@ public class SalesBuilder {
     private final static Integer VECTOR_POSITION_TWO = 2;
     private final static Integer VECTOR_POSITION_THREE = 3;
 
-    public static Sales buildSales(final String[] line) {
+    public static Sales parseSales(final String[] line) {
         return Sales
             .builder()
             .saleId(Integer.parseInt(getFieldByPosition(line, VECTOR_POSITION_ONE)))

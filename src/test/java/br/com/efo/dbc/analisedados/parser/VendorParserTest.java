@@ -1,6 +1,6 @@
-package br.com.efo.dbc.analisedados.builder;
+package br.com.efo.dbc.analisedados.parser;
 
-import static br.com.efo.dbc.analisedados.builder.VendorBuilder.buildVendor;
+import static br.com.efo.dbc.analisedados.parser.VendorParser.parseVendor;
 
 import br.com.efo.dbc.analisedados.model.Vendor;
 import lombok.val;
@@ -10,28 +10,28 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-public class VendorBuilderTest {
+public class VendorParserTest {
 
     private final static String DELIMITER = "ç";
 
     @Test
-    public void vendor_build_sucess() {
+    public void vendor_sucess() {
         val line = "001ç1234567891234çPedroç50000".split(DELIMITER);
-        val entity = buildVendor(line);
+        val entity = parseVendor(line);
 
-        Assertions.assertEquals(entity, buildExample());
+        Assertions.assertEquals(entity, build());
     }
 
     @Test
-    public void vendor_build_error() {
+    public void vendor_error() {
         val line = "001|1234567891234|Pedro|50000".split(DELIMITER);
-        val entity = buildVendor(line);
+        val entity = parseVendor(line);
 
-        Assertions.assertNotEquals(entity, buildExample());
+        Assertions.assertNotEquals(entity, build());
         Assertions.assertEquals("", entity.getName());
     }
 
-    private Vendor buildExample() {
+    private Vendor build() {
         return Vendor
             .builder()
             .cpf("1234567891234")

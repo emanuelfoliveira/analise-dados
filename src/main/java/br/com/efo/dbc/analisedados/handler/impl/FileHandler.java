@@ -2,9 +2,9 @@ package br.com.efo.dbc.analisedados.handler.impl;
 
 import static br.com.efo.dbc.analisedados.model.EntityCodeEnum.getEntityByCode;
 
-import static br.com.efo.dbc.analisedados.builder.ClientBuilder.buildClient;
-import static br.com.efo.dbc.analisedados.builder.SalesBuilder.buildSales;
-import static br.com.efo.dbc.analisedados.builder.VendorBuilder.buildVendor;
+import static br.com.efo.dbc.analisedados.parser.ClientParser.parseClient;
+import static br.com.efo.dbc.analisedados.parser.SalesParser.parseSales;
+import static br.com.efo.dbc.analisedados.parser.VendorParser.parseVendor;
 import br.com.efo.dbc.analisedados.handler.IFileHandler;
 import br.com.efo.dbc.analisedados.model.Client;
 import br.com.efo.dbc.analisedados.model.Sales;
@@ -40,13 +40,13 @@ public class FileHandler implements IFileHandler {
 
                 switch (entityCode) {
                     case VENDOR:
-                        vendorGenericService.save(buildVendor(splittedLine));
+                        vendorGenericService.save(parseVendor(splittedLine));
                         break;
                     case CLIENT:
-                        clientGenericService.save(buildClient(splittedLine));
+                        clientGenericService.save(parseClient(splittedLine));
                         break;
                     case SALES:
-                        salesGenericService.save(buildSales(splittedLine));
+                        salesGenericService.save(parseSales(splittedLine));
                         break;
                     default:
                         throw new InvalidParameterException("Invalid Parameter");
