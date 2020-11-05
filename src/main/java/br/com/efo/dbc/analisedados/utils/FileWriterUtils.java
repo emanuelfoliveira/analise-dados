@@ -19,8 +19,8 @@ public class FileWriterUtils {
         outputFile.close();
     }
 
-    public static String buildFlatFilename(final String fileName) {
-        val nameWithoutExtension = Files.getNameWithoutExtension(fileName);
+    public static String buildFlatFilename(final String filename) {
+        val nameWithoutExtension = Files.getNameWithoutExtension(filename);
         val date = new SimpleDateFormat(DATE_PATTERN).format(new Date());
         return String.format(FILE_NAME_FORMAT, nameWithoutExtension, date);
     }
