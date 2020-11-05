@@ -12,7 +12,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-public class SalesFactoryTest {
+public class SalesBuilderTest {
 
     private final static String DELIMITER = "ç";
 
