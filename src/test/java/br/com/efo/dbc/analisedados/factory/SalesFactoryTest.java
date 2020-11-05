@@ -35,7 +35,7 @@ public class SalesFactoryTest {
         return Sales
             .builder()
             .saleId(10)
-            .salesItemEntity(Arrays.asList(item))
+            .salesItem(Arrays.asList(item))
             .salesmanName("Pedro")
             .build();
     }

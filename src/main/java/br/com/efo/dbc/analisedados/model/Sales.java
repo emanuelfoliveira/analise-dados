@@ -30,7 +30,7 @@ public class Sales implements GenericEntity {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "SALES_ID")
-    private List<SalesItem> salesItemEntity;
+    private List<SalesItem> salesItem;
     private Integer saleId;
     private String salesmanName;
 

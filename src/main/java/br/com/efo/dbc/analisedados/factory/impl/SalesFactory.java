@@ -26,7 +26,7 @@ public class SalesFactory implements IEntityFactory {
         return Sales
             .builder()
             .saleId(Integer.parseInt(getFieldByPosition(line, VECTOR_POSITION_ONE)))
-            .salesItemEntity(getSalesItems(line))
+            .salesItem(getSalesItems(line))
             .salesmanName(getFieldByPosition(line, VECTOR_POSITION_THREE))
             .build();
     }

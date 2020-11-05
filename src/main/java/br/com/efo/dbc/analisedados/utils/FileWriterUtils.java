@@ -13,7 +13,7 @@ public class FileWriterUtils {
     private final static String DATE_PATTERN = "ddMMyyyyHHmmss";
     private final static String FILE_NAME_FORMAT = "/%s_%s.done.dat";
 
-    public static void writeOutputFile(final File file, final String content) throws IOException {
+    public static void write(final File file, final String content) throws IOException {
         val outputFile = new FileWriter(file);
         outputFile.write(content);
         outputFile.close();
