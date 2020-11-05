@@ -2,9 +2,9 @@ package br.com.efo.dbc.analisedados.handler.impl;
 
 import static br.com.efo.dbc.analisedados.model.EntityCodeEnum.getEntityByCode;
 
-import br.com.efo.dbc.analisedados.factory.impl.ClientFactory;
-import br.com.efo.dbc.analisedados.factory.impl.SalesFactory;
-import br.com.efo.dbc.analisedados.factory.impl.VendorFactory;
+import static br.com.efo.dbc.analisedados.builder.ClientBuilder.buildClient;
+import static br.com.efo.dbc.analisedados.builder.SalesBuilder.buildSales;
+import static br.com.efo.dbc.analisedados.builder.VendorBuilder.buildVendor;
 import br.com.efo.dbc.analisedados.handler.IFileHandler;
 import br.com.efo.dbc.analisedados.model.Client;
 import br.com.efo.dbc.analisedados.model.Sales;
@@ -32,7 +32,7 @@ public class FileHandler implements IFileHandler {
     private IGenericService<Sales> salesGenericService;
 
     @Override
-    public void persistData(final List<String> lines) throws Exception {
+    public void persist(final List<String> lines) throws Exception {
         try {
             lines.forEach(line -> {
                 val splittedLine = line.split(DELIMITER);
@@ -40,13 +40,13 @@ public class FileHandler implements IFileHandler {
 
                 switch (entityCode) {
                     case VENDOR:
-                        vendorGenericService.save(new VendorFactory().create(splittedLine));
+                        vendorGenericService.save(buildVendor(splittedLine));
                         break;
                     case CLIENT:
-                        clientGenericService.save(new ClientFactory().create(splittedLine));
+                        clientGenericService.save(buildClient(splittedLine));
                         break;
                     case SALES:
-                        salesGenericService.save(new SalesFactory().create(splittedLine));
+                        salesGenericService.save(buildSales(splittedLine));
                         break;
                     default:
                         throw new InvalidParameterException("Invalid Parameter");

@@ -1,17 +1,14 @@
-package br.com.efo.dbc.analisedados.factory.impl;
+package br.com.efo.dbc.analisedados.builder;
 
 import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.getFieldByPosition;
 
-import br.com.efo.dbc.analisedados.factory.IEntityFactory;
 import br.com.efo.dbc.analisedados.model.Sales;
 import br.com.efo.dbc.analisedados.model.SalesItem;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.val;
-import org.springframework.stereotype.Component;
 
-@Component
-public class SalesFactory implements IEntityFactory {
+public class SalesBuilder {
 
     private final static String DETAILS_DELIMITER = ",";
     private final static String ITEM_DETAILS_DELIMITER = "-";
@@ -21,8 +18,7 @@ public class SalesFactory implements IEntityFactory {
     private final static Integer VECTOR_POSITION_TWO = 2;
     private final static Integer VECTOR_POSITION_THREE = 3;
 
-    @Override
-    public Sales create(final String[] line) {
+    public static Sales buildSales(final String[] line) {
         return Sales
             .builder()
             .saleId(Integer.parseInt(getFieldByPosition(line, VECTOR_POSITION_ONE)))
@@ -31,7 +27,7 @@ public class SalesFactory implements IEntityFactory {
             .build();
     }
 
-    private List<SalesItem> getSalesItems(final String[] line) {
+    private static List<SalesItem> getSalesItems(final String[] line) {
         val items = line[VECTOR_POSITION_TWO].replaceAll(SQUARE_BRACKETS_REGEX, "");
         val spplitedItems = items.split(DETAILS_DELIMITER);
 

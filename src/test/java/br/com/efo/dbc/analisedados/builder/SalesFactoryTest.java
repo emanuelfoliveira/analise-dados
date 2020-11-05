@@ -1,6 +1,7 @@
-package br.com.efo.dbc.analisedados.factory;
+package br.com.efo.dbc.analisedados.builder;
 
-import br.com.efo.dbc.analisedados.factory.impl.SalesFactory;
+import static br.com.efo.dbc.analisedados.builder.SalesBuilder.buildSales;
+
 import br.com.efo.dbc.analisedados.model.Sales;
 import br.com.efo.dbc.analisedados.model.SalesItem;
 import java.util.Arrays;
@@ -18,9 +19,7 @@ public class SalesFactoryTest {
     @Test
     public void sales_build_sucess() {
         val line = "003ç10ç[1-10-100]çPedro".split(DELIMITER);
-        val factory = new SalesFactory();
-
-        val entity = factory.create(line);
+        val entity = buildSales(line);
 
         Assertions.assertEquals(entity, build());
     }
