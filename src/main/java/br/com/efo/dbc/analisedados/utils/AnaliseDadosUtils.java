@@ -32,6 +32,10 @@ public class AnaliseDadosUtils {
                 .concat(PATH_DATA_IN));
     }
 
+    public static String inputPathString() {
+        return inputPath().toString();
+    }
+
     public static Path outputPath() {
         return Paths.get(
             System.getProperty(PATH)
@@ -39,6 +43,10 @@ public class AnaliseDadosUtils {
                 .concat(PATH_DATA)
                 .concat(File.separator)
                 .concat(PATH_DATA_OUT));
+    }
+
+    public static String outputPathString() {
+        return outputPath().toString();
     }
 
 }

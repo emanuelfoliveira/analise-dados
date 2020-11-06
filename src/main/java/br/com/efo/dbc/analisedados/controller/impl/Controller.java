@@ -1,6 +1,6 @@
 package br.com.efo.dbc.analisedados.controller.impl;
 
-import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.outputPath;
+import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.outputPathString;
 
 import br.com.efo.dbc.analisedados.cleaner.IDatabaseCleaner;
 import br.com.efo.dbc.analisedados.controller.IController;
@@ -43,7 +43,7 @@ public class Controller implements IController {
 
             log.info("Report Generator Started");
             reportGenerator.execute(file);
-            log.info("File was successfuly generated on Path {}", outputPath().toString());
+            log.info("File was successfuly generated on Path {}", outputPathString());
 
             log.info("Cleaning Database Started");
             databaseCleaner.clean();

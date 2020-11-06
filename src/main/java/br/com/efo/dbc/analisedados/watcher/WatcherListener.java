@@ -1,6 +1,6 @@
 package br.com.efo.dbc.analisedados.watcher;
 
-import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.inputPath;
+import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.inputPathString;
 
 import br.com.efo.dbc.analisedados.controller.IController;
 import com.google.common.io.Files;
@@ -38,7 +38,7 @@ public class WatcherListener {
             WatchKey key;
             while ((key = watchService.take()) != null) {
                 for (val event : key.pollEvents()) {
-                    val stringPath = inputPath().toString();
+                    val stringPath = inputPathString();
                     val filename = event.context().toString();
                     log.info("THE FILE {} WAS CREATED ON PATH: {}", filename, stringPath);
                     if (isFileExtensionDat(filename)) {

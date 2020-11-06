@@ -1,6 +1,6 @@
 package br.com.efo.dbc.analisedados.report.impl;
 
-import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.outputPath;
+import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.outputPathString;
 import static br.com.efo.dbc.analisedados.utils.FileWriterUtils.writeFile;
 import static br.com.efo.dbc.analisedados.utils.FileWriterUtils.buildFlatFilename;
 
@@ -37,7 +37,7 @@ public class ReportGenerator implements IReportGenerator {
 
     @Override
     public void execute(final File filename) throws IOException {
-        val filePath = String.format(FULL_PATH_FORMAT, outputPath().toString(), buildFlatFilename(filename.getName()));
+        val filePath = String.format(FULL_PATH_FORMAT, outputPathString(), buildFlatFilename(filename.getName()));
 
         writeFile(new File(filePath), buildReportContent());
     }
