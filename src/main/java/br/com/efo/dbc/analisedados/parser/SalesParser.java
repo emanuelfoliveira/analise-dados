@@ -5,6 +5,7 @@ import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.getFieldByPosi
 import br.com.efo.dbc.analisedados.model.Sales;
 import br.com.efo.dbc.analisedados.model.SalesItem;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import lombok.val;
 
@@ -32,9 +33,8 @@ public class SalesParser {
         val spplitedItems = items.split(DETAILS_DELIMITER);
 
         val listItems = new ArrayList<SalesItem>();
-        for (int i = 0; i < spplitedItems.length; i++) {
-            val itemsLine = spplitedItems[i].split(ITEM_DETAILS_DELIMITER);
-
+        Arrays.stream(spplitedItems).forEach(item -> {
+            val itemsLine = item.split(ITEM_DETAILS_DELIMITER);
             val entity = SalesItem.builder()
                 .itemId(getFieldByPosition(itemsLine, VECTOR_POSITION_ZERO))
                 .itemQuantity(getFieldByPosition(itemsLine, VECTOR_POSITION_ONE))
@@ -42,7 +42,8 @@ public class SalesParser {
                 .build();
 
             listItems.add(entity);
-        }
+        });
+
         return listItems;
     }
 }
