@@ -8,7 +8,6 @@ import br.com.efo.dbc.analisedados.handler.IFileHandler;
 import br.com.efo.dbc.analisedados.reader.IFileReader;
 import br.com.efo.dbc.analisedados.report.IReportGenerator;
 import java.io.File;
-import java.io.FileNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +30,7 @@ public class Controller implements IController {
     private IDatabaseCleaner databaseCleaner;
 
     @Override
-    public void execute(final File file) throws FileNotFoundException {
+    public void execute(final File file) {
         try {
             log.info("Data Reader Started");
             val lines = fileReader.read(file);
