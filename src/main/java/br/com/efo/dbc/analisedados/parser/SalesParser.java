@@ -35,7 +35,8 @@ public class SalesParser {
         val listItems = new ArrayList<SalesItem>();
         Arrays.stream(spplitedItems).forEach(item -> {
             val itemsLine = item.split(ITEM_DETAILS_DELIMITER);
-            val entity = SalesItem.builder()
+            val entity = SalesItem
+                .builder()
                 .itemId(getFieldByPosition(itemsLine, VECTOR_POSITION_ZERO))
                 .itemQuantity(getFieldByPosition(itemsLine, VECTOR_POSITION_ONE))
                 .itemPrice(Double.parseDouble(getFieldByPosition(itemsLine, VECTOR_POSITION_TWO)))

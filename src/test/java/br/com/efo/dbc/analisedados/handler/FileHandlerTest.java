@@ -73,7 +73,8 @@ public class FileHandlerTest {
     }
 
     private Vendor buildVendor() {
-        return Vendor.builder()
+        return Vendor
+            .builder()
             .cpf("1234567891234")
             .name("Pedro")
             .salary("50000")
@@ -81,7 +82,8 @@ public class FileHandlerTest {
     }
 
     private Client buildClient() {
-        return Client.builder()
+        return Client
+            .builder()
             .cnpj("2345675434544345")
             .name("Jose da Silva")
             .businessArea("Rural")
@@ -89,7 +91,8 @@ public class FileHandlerTest {
     }
 
     private Sales buildSales() {
-        val item = SalesItem.builder()
+        val item = SalesItem
+            .builder()
             .itemId("1")
             .itemQuantity("10")
             .itemPrice(100.0)

@@ -25,7 +25,8 @@ public class SalesParserTest {
     }
 
     private Sales build() {
-        val item = SalesItem.builder()
+        val item = SalesItem
+            .builder()
             .itemId("1")
             .itemQuantity("10")
             .itemPrice(100.0)

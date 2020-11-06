@@ -1,10 +1,10 @@
 package br.com.efo.dbc.analisedados.reader;
 
 import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.outputPath;
+import static br.com.efo.dbc.analisedados.utils.FileWriterUtils.writeFile;
 
 import br.com.efo.dbc.analisedados.reader.impl.FileReader;
 import java.io.File;
-import java.io.FileWriter;
 import lombok.SneakyThrows;
 import lombok.val;
 import org.junit.jupiter.api.AfterAll;
@@ -22,16 +22,13 @@ public class FileReaderTest {
     @BeforeAll
     @SneakyThrows
     private static void before() {
-        val outputFile = new FileWriter(new File(outputPath().toString().concat(FILE_NAME)));
-        outputFile.write(content());
-        outputFile.close();
+        writeFile(new File(outputPath().toString().concat(FILE_NAME)), content());
     }
 
     @AfterAll
     @SneakyThrows
     private static void after() {
-        val file = new File(outputPath().toString().concat(FILE_NAME));
-        file.delete();
+        new File(outputPath().toString().concat(FILE_NAME)).delete();
     }
 
     @Test
