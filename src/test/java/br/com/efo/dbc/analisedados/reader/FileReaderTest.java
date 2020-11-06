@@ -1,6 +1,6 @@
 package br.com.efo.dbc.analisedados.reader;
 
-import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.outputPath;
+import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.outputPathString;
 import static br.com.efo.dbc.analisedados.utils.FileWriterUtils.writeFile;
 
 import br.com.efo.dbc.analisedados.reader.impl.FileReader;
@@ -22,13 +22,13 @@ public class FileReaderTest {
     @BeforeAll
     @SneakyThrows
     private static void before() {
-        writeFile(new File(outputPath().toString().concat(FILE_NAME)), content());
+        writeFile(new File(outputPathString().concat(FILE_NAME)), content());
     }
 
     @AfterAll
     @SneakyThrows
     private static void after() {
-        new File(outputPath().toString().concat(FILE_NAME)).delete();
+        new File(outputPathString().concat(FILE_NAME)).delete();
     }
 
     @Test
@@ -36,7 +36,7 @@ public class FileReaderTest {
     public void success() {
         val fileReader = new FileReader();
 
-        val list = fileReader.read(new File(outputPath().toString().concat(FILE_NAME)));
+        val list = fileReader.read(new File(outputPathString().concat(FILE_NAME)));
 
         Assertions.assertEquals("001ç1234567891234çPedroç50000", list.get(0));
         Assertions.assertEquals(2, list.size());
