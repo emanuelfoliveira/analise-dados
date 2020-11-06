@@ -1,10 +1,10 @@
 package br.com.efo.dbc.analisedados.handler.impl;
 
 import static br.com.efo.dbc.analisedados.model.EntityCodeEnum.getEntityByCode;
-
 import static br.com.efo.dbc.analisedados.parser.ClientParser.parseClient;
 import static br.com.efo.dbc.analisedados.parser.SalesParser.parseSales;
 import static br.com.efo.dbc.analisedados.parser.VendorParser.parseVendor;
+
 import br.com.efo.dbc.analisedados.handler.IFileHandler;
 import br.com.efo.dbc.analisedados.model.Client;
 import br.com.efo.dbc.analisedados.model.Sales;

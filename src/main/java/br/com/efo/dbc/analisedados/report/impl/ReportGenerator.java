@@ -1,8 +1,8 @@
 package br.com.efo.dbc.analisedados.report.impl;
 
 import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.outputPathString;
-import static br.com.efo.dbc.analisedados.utils.FileWriterUtils.writeFile;
 import static br.com.efo.dbc.analisedados.utils.FileWriterUtils.buildFlatFilename;
+import static br.com.efo.dbc.analisedados.utils.FileWriterUtils.writeFile;
 
 import br.com.efo.dbc.analisedados.model.Client;
 import br.com.efo.dbc.analisedados.model.Vendor;
