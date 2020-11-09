@@ -2,13 +2,13 @@ package br.com.efo.dbc.analisedados.reader;
 
 import static br.com.efo.dbc.analisedados.utils.AnaliseDadosUtils.outputPathString;
 import static br.com.efo.dbc.analisedados.utils.FileWriterUtils.writeFile;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import br.com.efo.dbc.analisedados.reader.impl.FileReader;
 import java.io.File;
 import lombok.SneakyThrows;
 import lombok.val;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -38,8 +38,8 @@ public class FileReaderTest {
 
         val list = fileReader.read(new File(outputPathString().concat(FILE_NAME)));
 
-        Assertions.assertEquals("001ç1234567891234çPedroç50000", list.get(0));
-        Assertions.assertEquals(2, list.size());
+        assertEquals("001ç1234567891234çPedroç50000", list.get(0));
+        assertEquals(2, list.size());
     }
 
 

@@ -1,12 +1,12 @@
 package br.com.efo.dbc.analisedados.parser;
 
 import static br.com.efo.dbc.analisedados.parser.SalesParser.parseSales;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import br.com.efo.dbc.analisedados.model.Sales;
 import br.com.efo.dbc.analisedados.model.SalesItem;
 import java.util.Arrays;
 import lombok.val;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -21,7 +21,7 @@ public class SalesParserTest {
         val line = "003ç10ç[1-10-100]çPedro".split(DELIMITER);
         val entity = parseSales(line);
 
-        Assertions.assertEquals(entity, build());
+        assertEquals(entity, build());
     }
 
     private Sales build() {
